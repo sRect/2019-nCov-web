@@ -1,0 +1,13 @@
+{
+  "presets": [
+    "react-app"
+  ],
+  "plugins": [
+    // https://babeljs.io/docs/en/next/babel-plugin-syntax-dynamic-import.html
+    // "@babel/plugin-syntax-dynamic-import", // 懒加载
+    ["import", {
+      "libraryName": "antd-mobile",
+      "style": "css" // `style: true` 会加载 less 文件
+    }]
+  ]
+}

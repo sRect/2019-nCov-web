@@ -1,0 +1,20 @@
+# https://editorconfig.org/#example-file
+# top-most EditorConfig file
+root = true
+
+# 匹配全部文件
+[*]
+# 结尾换行符，可选"lf"、"cr"、"crlf"
+end_of_line = lf
+# 在文件结尾插入新行
+insert_final_newline = true
+
+# 匹配js结尾的文件
+[*.js]
+# 设置字符集
+charset = utf-8 #编码模式
+indent_style = tab #使用 tab 的样式制表符和 space
+indent_size = 2
+end_of_line = lf #行尾结尾方式
+insert_final_newline = true #自动保存行尾最后一行是空行
+trim_trailing_whitespace = true #一行结束后面的空格自动去掉

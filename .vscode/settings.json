@@ -1,0 +1,7 @@
+// https://github.com/prettier/prettier-vscode
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

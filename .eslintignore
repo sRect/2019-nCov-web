@@ -1,0 +1,4 @@
+/node_modules
+build/*.js
+config/*.js
+commitlint.config.js

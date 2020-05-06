@@ -1,0 +1,14 @@
+{
+  "projectName": "4danlog_web",
+  "projectOwner": "fangchaoqun",
+  "repoType": "gitlab",
+  "repoHost": "https://gitlab.com",
+  "files": [
+    "CONTRIBUTING.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "angular",
+  "contributors": [],
+  "contributorsPerLine": 7
+}

@@ -15,16 +15,14 @@ import {
 
 const Home = lazy(() => import(/* webpackChunkName: "home" */ 'pages/Home')); // 组件懒加载
 const About = lazy(() => import(/* webpackChunkName: "about" */ 'pages/About'));
-const Foo = lazy(() => import(/* webpackChunkName: "foo" */ 'components/Foo'));
-const Bar = lazy(() => import(/* webpackChunkName: "bar" */ 'components/Bar'));
-const ModelShow = lazy(() => import(/* webpackChunkName: "modelshow" */ 'pages/ModelShow'));
+const Areastat = lazy(() => import(/* webpackChunkName: "areastat" */ 'components/Areastat'));
+const ListByCountryTypeService2true = lazy(() =>
+	import(
+		/* webpackChunkName: "listByCountryTypeService2true" */ 'components/ListByCountryTypeService2true'
+	)
+);
 
 const routes = [
-	{
-		path: '/modelshow',
-		exact: true,
-		component: ModelShow,
-	},
 	{
 		path: '/about',
 		exact: true,
@@ -37,17 +35,17 @@ const routes = [
 			{
 				path: '/',
 				exact: true,
-				render: () => <Redirect to={'/foo'} />,
+				render: () => <Redirect to={'/areastat'} />,
 			},
 			{
-				path: '/foo',
+				path: '/areastat',
 				exact: true,
-				component: Foo,
+				component: Areastat,
 			},
 			{
-				path: '/bar',
+				path: '/listByCountryTypeService2true',
 				exact: true,
-				component: Bar,
+				component: ListByCountryTypeService2true,
 			},
 		],
 	},

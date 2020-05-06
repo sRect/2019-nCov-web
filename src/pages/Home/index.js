@@ -1,54 +1,94 @@
-import React, { useContext } from 'react';
+import React, { useState } from 'react';
+import { TabBar } from 'antd-mobile';
 import { withAxios } from 'react-axios';
 import { renderRoutes } from 'react-router-config';
 import { NavLink, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import TestComponent from 'components/TestComponent';
-import { Context } from '../../App';
-import { setUuid } from './store/actions';
-import api from '../../api/request';
+import './home.less';
 
 function App(props) {
 	const {
 		route: { routes },
 	} = props;
-	// const [uuid, getUuid] = useState('default data');
 	const history = useHistory();
-	const [data, dispatch] = useContext(Context);
-	const { uuid } = data.toJS();
-
-	const hanleClick = () => {
-		api
-			.getUuid()
-			.then(({ uuid }) => {
-				console.log(uuid);
-				dispatch(setUuid(uuid));
-			})
-			.catch(error => {
-				console.log(error);
-			});
-	};
-
-	const testCrossDomain = () => {
-		console.log('====');
-	};
+	const [selectedTab, setSelectedTab] = useState('Areastat');
 
 	return (
 		<div className="App">
-			<header className="App-header">
-				<p>uuid: {uuid}</p>
-				<button onClick={hanleClick}>get uuid</button>
-				&nbsp;&nbsp;
-				<button onClick={testCrossDomain}>testCrossDomain</button>
-				<TestComponent />
-			</header>
+			<TabBar
+				unselectedTintColor="#949494"
+				tintColor="#33A3F4"
+				barTintColor="white"
+				tabBarPosition="top"
+			>
+				<TabBar.Item
+					title="国内疫情"
+					key="Areastat"
+					icon={
+						<div
+							style={{
+								width: '0',
+								height: '0',
+								background: 'none',
+							}}
+						/>
+					}
+					selectedIcon={
+						<div
+							style={{
+								width: '0',
+								height: '0',
+								background: 'none',
+							}}
+						/>
+					}
+					selected={selectedTab === 'Areastat'}
+					onPress={() => {
+						setSelectedTab('Areastat');
+						history.push('/areastat');
+					}}
+					data-seed="logId"
+				>
+					{''}
+				</TabBar.Item>
+				<TabBar.Item
+					title="全球疫情"
+					key="ListByCountryTypeService2true"
+					icon={
+						<div
+							style={{
+								width: '0',
+								height: '0',
+								background: 'none',
+							}}
+						/>
+					}
+					selectedIcon={
+						<div
+							style={{
+								width: '0',
+								height: '0',
+								background: 'none',
+							}}
+						/>
+					}
+					selected={selectedTab === 'ListByCountryTypeService2true'}
+					onPress={() => {
+						setSelectedTab('ListByCountryTypeService2true');
+						history.push('/listByCountryTypeService2true');
+					}}
+					data-seed="logId1"
+				>
+					{''}
+				</TabBar.Item>
+			</TabBar>
 			<main>
-				<NavLink to="/foo" activeClassName="active">
-					<span>foo</span>
+				<NavLink to="/areastat" activeClassName="active">
+					<span>国内疫情</span>
 				</NavLink>{' '}
 				|
-				<NavLink to="/bar" activeClassName="active">
-					<span>bar</span>
+				<NavLink to="/listByCountryTypeService2true">
+					<span>全球疫情</span>
 				</NavLink>{' '}
 				|
 				<button
@@ -57,14 +97,6 @@ function App(props) {
 					}}
 				>
 					goto about
-				</button>
-				&nbsp;&nbsp;
-				<button
-					onClick={() => {
-						history.push('/modelshow');
-					}}
-				>
-					modelshow
 				</button>
 			</main>
 			<div>{renderRoutes(routes)}</div>

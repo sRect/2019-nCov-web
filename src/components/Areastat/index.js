@@ -1,9 +1,10 @@
 import React, { memo } from 'react';
+import Table from '../Table';
 
 const AreaStat = memo(() => {
 	return (
 		<>
-			<span>AreaStat========</span>
+			<Table></Table>
 		</>
 	);
 });

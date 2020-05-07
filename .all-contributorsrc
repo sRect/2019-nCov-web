@@ -1,0 +1,14 @@
+{
+  "projectName": "2019-nCov-web",
+  "projectOwner": "srect",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    " CONTRIBUTING.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "gitmoji",
+  "contributors": [],
+  "contributorsPerLine": 7
+}

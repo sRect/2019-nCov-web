@@ -1,46 +1,60 @@
-import React, { Fragment } from 'react';
+import React, { memo, Fragment, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { WingBlank, WhiteSpace } from 'antd-mobile';
 import BootstrapTable from 'react-bootstrap-table-next';
+import { setTableData } from './store/actions';
 import { TableWrap } from './style';
 
-const columns = [
-	{
-		dataField: 'provinceName',
-		text: '地区',
-	},
-	{
-		dataField: 'currentConfirmedCount',
-		text: '现存确诊',
-	},
-	{
-		dataField: 'confirmedCount',
-		text: '累计确诊',
-	},
-	{
-		dataField: 'deadCount',
-		text: '死亡',
-	},
-	{
-		dataField: 'curedCount',
-		text: '治愈',
-	},
-	{
-		dataField: 'detail',
-		text: '查看详情',
-	},
-];
+function Table(props) {
+	console.log('props===>', props);
+	const { type, areastaTheadData, listByCountryTheadData, tableData, setTableData } = props;
+	const columns =
+		type.toLowerCase() === 'areastat' ? areastaTheadData.toJS() : listByCountryTheadData.toJS();
 
-function Table() {
+	useEffect(() => {
+		setTableData(tableData);
+	}, [tableData.length]);
+
 	return (
 		<Fragment>
 			<WhiteSpace />
 			<TableWrap>
 				<WingBlank>
-					<BootstrapTable keyField="id" data={[]} columns={columns} />
+					{/* _id 是tableData数据中的key值，取决你的数据 */}
+					<BootstrapTable
+						keyField="_id"
+						bordered={true}
+						striped={true}
+						loading={true}
+						data={tableData}
+						columns={[...columns]}
+					/>
 				</WingBlank>
 			</TableWrap>
 		</Fragment>
 	);
 }
 
-export default Table;
+Table.propTypes = {
+	type: PropTypes.string.isRequired,
+	areastaTheadData: PropTypes.object.isRequired,
+	listByCountryTheadData: PropTypes.object.isRequired,
+	tableData: PropTypes.array.isRequired,
+	setTableData: PropTypes.func,
+};
+
+const mapStateToPops = state => {
+	return {
+		areastaTheadData: state.getIn(['tableReducer', 'areastaTheadData']),
+		listByCountryTheadData: state.getIn(['tableReducer', 'listByCountryTheadData']),
+	};
+};
+
+const mapDispatchToProps = dispatch => {
+	return {
+		setTableData: data => dispatch(setTableData(data)),
+	};
+};
+
+export default memo(connect(mapStateToPops, mapDispatchToProps)(Table));

@@ -1,43 +1,18 @@
 import React, { useState } from 'react';
-import { TabBar, Toast } from 'antd-mobile';
+import { TabBar } from 'antd-mobile';
 import { withAxios } from 'react-axios';
 import { renderRoutes } from 'react-router-config';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import api from 'api/request';
 import './home.less';
 
 function App(props) {
 	const {
 		route: { routes },
 	} = props;
-	const { getAreaStat, getListByCountryTypeService2true } = api;
+
 	const history = useHistory();
 	const [selectedTab, setSelectedTab] = useState('Areastat');
-
-	const getData = type => {
-		if (type === 'Areastat') {
-			getAreaStat()
-				.then(data => {
-					console.log(data);
-					history.push('/areastat');
-				})
-				.catch(err => {
-					console.log(err);
-					Toast.fail('areastat fetch error');
-				});
-		} else {
-			getListByCountryTypeService2true()
-				.then(data => {
-					console.log(data);
-					history.push('/listByCountryTypeService2true');
-				})
-				.catch(err => {
-					console.log(err);
-					Toast.fail('listByCountryTypeService2true fetch error');
-				});
-		}
-	};
 
 	return (
 		<div className="App">
@@ -71,7 +46,7 @@ function App(props) {
 					selected={selectedTab === 'Areastat'}
 					onPress={() => {
 						setSelectedTab('Areastat');
-						getData('Areastat');
+						history.push('/areastat');
 					}}
 					data-seed="logId"
 				>
@@ -101,7 +76,7 @@ function App(props) {
 					selected={selectedTab === 'ListByCountryTypeService2true'}
 					onPress={() => {
 						setSelectedTab('ListByCountryTypeService2true');
-						getData('ListByCountryTypeService2true');
+						history.push('/listByCountryTypeService2true');
 					}}
 					data-seed="logId1"
 				>

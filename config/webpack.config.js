@@ -329,6 +329,7 @@ module.exports = function(webpackEnv) {
         }),
         '@': path.resolve(__dirname, '../src'),
         'components': path.resolve(__dirname, '../src/components'),
+        'baseUI': path.resolve(__dirname, '../src/baseUI'),
         'pages': path.resolve(__dirname, '../src/pages'),
         'store': path.resolve(__dirname, '../src/store'),
         'api': path.resolve(__dirname, '../src/api'),

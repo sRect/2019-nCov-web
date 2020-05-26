@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { WingBlank, WhiteSpace } from 'antd-mobile';
 import BootstrapTable from 'react-bootstrap-table-next';
+import Scroll from 'baseUI/Scroll';
 import { setTableData } from './store/actions';
 import { TableWrap } from './style';
 
@@ -19,18 +20,20 @@ function Table(props) {
 	return (
 		<Fragment>
 			<WhiteSpace />
-			<TableWrap>
-				<WingBlank>
-					{/* _id 是tableData数据中的key值，取决你的数据 */}
-					<BootstrapTable
-						keyField="_id"
-						bordered={true}
-						striped={true}
-						loading={true}
-						data={tableData}
-						columns={[...columns]}
-					/>
-				</WingBlank>
+			<TableWrap className="tableWrap">
+				<Scroll>
+					<WingBlank>
+						{/* _id 是tableData数据中的key值，取决你的数据 */}
+						<BootstrapTable
+							keyField="_id"
+							bordered={true}
+							striped={true}
+							loading={true}
+							data={tableData}
+							columns={[...columns]}
+						/>
+					</WingBlank>
+				</Scroll>
 			</TableWrap>
 		</Fragment>
 	);

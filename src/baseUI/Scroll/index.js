@@ -4,7 +4,7 @@ import BScroll from 'better-scroll';
 import { ScrollContainer } from './style';
 
 const Scroll = forwardRef((props, ref) => {
-	const { direction, click, refresh, bounceTop, bounceBottom } = props;
+	const { direction, refresh, bounceTop, bounceBottom } = props;
 	const { onScroll } = props;
 
 	const scrollContainerRef = useRef(null);
@@ -16,7 +16,7 @@ const Scroll = forwardRef((props, ref) => {
 			scrollX: direction === 'horizental',
 			scrollY: direction === 'vertical',
 			probeType: 3,
-			click: click,
+			// click: click,
 			bounce: {
 				top: bounceTop,
 				bottom: bounceBottom,
@@ -63,7 +63,7 @@ const Scroll = forwardRef((props, ref) => {
 
 Scroll.defaultProps = {
 	direction: 'vertical',
-	click: true,
+	// click: true,
 	refresh: true,
 	onScroll: null,
 	pullUp: null,
@@ -76,7 +76,7 @@ Scroll.defaultProps = {
 
 Scroll.propTypes = {
 	direction: PropTypes.oneOf(['vertical', 'horizental']),
-	click: true, // 是否支持点击
+	// click: true, // 是否支持点击
 	refresh: PropTypes.bool, // 是否刷新
 	onScroll: PropTypes.func, // 滑动触发的回调函数
 	pullUp: PropTypes.func, // 上拉加载逻辑

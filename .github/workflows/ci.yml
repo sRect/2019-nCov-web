@@ -12,11 +12,16 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@master
       
+      - name: yarn
+        uses: borales/actions-yarn@v2.0.0
+      
       - name: Install and Build 🔧
+        # run: |
+        #   yarn install
+        #   yarn run build
         run: |
-          npm install yarn -g
-          yarn install
-          yarn run build 
+          install
+          build
       
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3

@@ -166,5 +166,6 @@
     "emojis": true,
     "authorName": true,
     "authorEmail": true
-  }
+  },
+  "homepage": "https://srect.github.io/2019-nCov-web"
 }

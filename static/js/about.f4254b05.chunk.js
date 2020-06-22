@@ -1,0 +1,1 @@
+(this.webpackJsonp4danlog_web=this.webpackJsonp4danlog_web||[]).push([[2],{289:function(e,n,t){"use strict";t.r(n);var a=t(0),l=t.n(a);n.default=Object(a.memo)((function(){return l.a.createElement(a.Fragment,null,l.a.createElement("h1",null,"about page"))}))}}]);

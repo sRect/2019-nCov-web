@@ -5,7 +5,9 @@ const api = {
 	getListByCountryTypeService2true: ({ continents, orderQuery, pageNum, pageSize }) =>
 		axiosInstance.post('/api/getListByCountryTypeService2true', {
 			continents,
-			orderQuery,
+			orderQuery: {
+				...orderQuery,
+			},
 			pageNum,
 			pageSize,
 		}),

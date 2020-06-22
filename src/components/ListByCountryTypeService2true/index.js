@@ -9,13 +9,12 @@ const ListByCountryTypeService2true = memo(() => {
 
 	useEffect(() => {
 		getListByCountryTypeService2true({
-			continents: 'ashia',
+			continents: '全部',
 			orderQuery: { confirmedCount: -1 },
 			pageNum: 0,
-			pageSize: 10,
+			pageSize: 50,
 		})
 			.then(data => {
-				console.log(data);
 				setTableData(data);
 			})
 			.catch(err => {

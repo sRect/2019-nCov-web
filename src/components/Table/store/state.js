@@ -9,18 +9,22 @@ export const tableData = fromJS({
 		{
 			dataField: 'currentConfirmedCount',
 			text: '现存确诊',
+			sort: true,
 		},
 		{
 			dataField: 'confirmedCount',
 			text: '累计确诊',
+			sort: true,
 		},
 		{
 			dataField: 'deadCount',
 			text: '死亡',
+			sort: true,
 		},
 		{
 			dataField: 'curedCount',
 			text: '治愈',
+			sort: true,
 		},
 		{
 			dataField: 'detail',
@@ -35,14 +39,17 @@ export const tableData = fromJS({
 		{
 			dataField: 'deadRate',
 			text: '病死率',
+			sort: true,
 		},
 		{
 			dataField: 'deadRateRank',
 			text: '排序',
+			sort: true,
 		},
 		{
 			dataField: 'deadCount',
 			text: '累计死亡',
+			sort: true,
 		},
 		{
 			dataField: 'deadCountRank',
@@ -51,6 +58,7 @@ export const tableData = fromJS({
 		{
 			dataField: 'confirmedCount',
 			text: '累计确诊',
+			sort: true,
 		},
 		{
 			dataField: 'confirmedCountRank',

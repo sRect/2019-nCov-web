@@ -8,7 +8,6 @@ import { setTableData } from './store/actions';
 import { TableWrap } from './style';
 
 function Table(props) {
-	console.log('props===>', props);
 	const { type, areastaTheadData, listByCountryTheadData, tableData, setTableData } = props;
 	const columns =
 		type.toLowerCase() === 'areastat' ? areastaTheadData.toJS() : listByCountryTheadData.toJS();
@@ -24,11 +23,13 @@ function Table(props) {
 				<Scroll>
 					<WingBlank>
 						{/* _id 是tableData数据中的key值，取决你的数据 */}
+						{/* https://react-bootstrap-table.github.io/react-bootstrap-table2/storybook/index.html */}
 						<BootstrapTable
 							keyField="_id"
-							bordered={true}
-							striped={true}
-							loading={true}
+							bordered
+							striped
+							loading
+							condensed
 							data={tableData}
 							columns={[...columns]}
 						/>
